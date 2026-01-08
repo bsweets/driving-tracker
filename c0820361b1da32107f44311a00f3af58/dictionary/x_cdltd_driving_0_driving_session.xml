@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="122a0329b1da32107f44311a00f3afbe" label="Driving Session" max_length="40" name="x_cdltd_driving_0_driving_session" type="collection">
+        <element label="Driver" max_length="32" name="driver" reference="sys_user" type="reference"/>
+        <element label="End time" max_length="255" name="end_time" type="glide_date_time"/>
+        <element label="Mentor" max_length="32" name="mentor" reference="sys_user" type="reference"/>
+        <element choice="1" label="Vehicle" max_length="40" name="vehicle" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="VW" sequence="0" value="vw"/>
+                <element inactive_on_update="false" label="Toyota" sequence="1" value="toyota"/>
+            </choice>
+        </element>
+        <element label="Start time" max_length="255" name="start_time" type="glide_date_time"/>
+        <element label="Duration" max_length="255" name="duration" type="glide_duration"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="mentor"/>
+        </index>
+        <index name="index2">
+            <element name="driver"/>
+        </index>
     </element>
 </database>
